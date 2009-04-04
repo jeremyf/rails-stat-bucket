@@ -1,0 +1,3 @@
+== rails-stat-bucket
+
+A simple gem that will traverse your Git history and report the rails stats for each day in the projects life.
