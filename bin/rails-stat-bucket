@@ -1,1 +1,32 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'main'
+
+graph_lambda = lambda {
+  description 'Generate a graph of the stats using Googles Graph API'
+}
+stat_bucket_file_lambda = lambda {
+  default 'rails-stat-bucket.csv'
+  arity 1
+  description 'Name of the generated rails-stat-bucket'
+}
+Main {
+  mode 'generate' do
+    description 'A simple script that traverses the Git history of a Rails project and generates the stats'
+    argument('directory') {
+      default './'
+      arity 1
+      description 'The directory that contains the Git repository'
+    }
+    option('all', 'a') {
+      description 'Generate the stats for each commit; This will take some time.'
+    }
+    option('graph', 'g', &graph_lambda)
+    option('output_file', 'o', &stat_bucket_file_lambda)
+  end
+
+  mode 'load' do
+    argument('filename', &stat_bucket_file_lambda) 
+    option('graph', 'g', &graph_lambda)
+  end
+}

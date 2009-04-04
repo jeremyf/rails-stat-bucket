@@ -25,8 +25,7 @@ spec = Gem::Specification.new do |s|
   s.email = EMAIL
   s.homepage = HOMEPAGE
   
-  # Uncomment this to add a dependency
-  # s.add_dependency "foo"
+  s.add_dependency("main", ">=2.8.3"
   
   s.require_path = 'lib'
   s.autorequire = GEM
