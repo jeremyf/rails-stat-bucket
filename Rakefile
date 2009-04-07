@@ -18,18 +18,18 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc = true
   s.bindir = 'bin'
   s.executables = GEM
-  s.extra_rdoc_files = ["README", "LICENSE", 'TODO']
+  s.extra_rdoc_files = ["README.rdoc", "LICENSE", 'TODO']
   s.summary = SUMMARY
   s.description = s.summary
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
   
-  s.add_dependency("main", ">=2.8.3"
+  s.add_dependency("main", ">=2.8.3")
   
   s.require_path = 'lib'
   s.autorequire = GEM
-  s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,test,bin}/**/*")
+  s.files = %w(LICENSE README.rdoc Rakefile TODO) + Dir.glob("{lib,test,bin}/**/*")
 end
 
 task :default => :test

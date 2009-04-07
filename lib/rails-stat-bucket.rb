@@ -29,7 +29,7 @@ module RailsStatBucket
         YAML.dump(@collector, file)
       end
     else
-      puts 'Unable to proceed with stat check. Directory directory.'
+      puts "Unable to proceed with stat check. Uncommited changes found in #{input_directory}"
       exit!(-1)
     end
   end
