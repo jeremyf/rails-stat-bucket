@@ -7,7 +7,7 @@ graph_lambda = lambda {
   description 'Generate a graph of the stats using Googles Graph API'
 }
 stat_bucket_file_lambda = lambda {
-  default 'rails-stat-bucket.csv'
+  default 'rails-stat-bucket.yml'
   arity 1
   description 'Name of the generated rails-stat-bucket'
 }
@@ -21,7 +21,7 @@ Main do
     description 'Read the git history and collect the stats, writing them to the output file.'
     
     def run
-      RailsStatBucket.generate(params)
+      RailsStatBucket.generate(params['directory'].value, params['output_file'].value, params['all'].given?)
     end
     
     argument('directory') {
@@ -34,7 +34,6 @@ Main do
     }
     option('graph', 'g', &graph_lambda)
     option('output_file', 'o', &stat_bucket_file_lambda)
-    
   end
 
   mode 'load' do
