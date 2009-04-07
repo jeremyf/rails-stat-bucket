@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'rubygems'
 require 'main'
+require File.expand_path(File.dirname(__FILE__)) + '/../lib/rails-stat-bucket'
 
 graph_lambda = lambda {
   description 'Generate a graph of the stats using Googles Graph API'
@@ -10,9 +11,19 @@ stat_bucket_file_lambda = lambda {
   arity 1
   description 'Name of the generated rails-stat-bucket'
 }
-Main {
+Main do
+  description 'A simple script that traverses the Git history of a Rails project and generates the stats'
+  
+  def run
+    help!
+  end
   mode 'generate' do
-    description 'A simple script that traverses the Git history of a Rails project and generates the stats'
+    description 'Read the git history and collect the stats, writing them to the output file.'
+    
+    def run
+      RailsStatBucket.generate(params)
+    end
+    
     argument('directory') {
       default './'
       arity 1
@@ -23,10 +34,16 @@ Main {
     }
     option('graph', 'g', &graph_lambda)
     option('output_file', 'o', &stat_bucket_file_lambda)
+    
   end
 
   mode 'load' do
+    description 'Load the stats from the filename and generate a graph'
+    
+    def run
+      RailsStatBucket.load(params)
+    end
     argument('filename', &stat_bucket_file_lambda) 
     option('graph', 'g', &graph_lambda)
   end
-}
+end
