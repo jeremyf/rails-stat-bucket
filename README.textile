@@ -2,5 +2,6 @@ h1. rails-stat-bucket
 
 A simple gem that will traverse your Git history and report the rails stats for each day in the projects life.
 
+h2. Below is the output of rails-stat-bucket
 
 !http://chart.apis.google.com/chart?cht=lc&chs=525x525&chds=0,2385&chd=t:22,771,799,948,877,1077,1100,1100,1470,1488,1605,1709,1815,1857,2051,2113,2241,2247,2279,2278,2278,2320,2385|21,648,745,901,647,881,895,895,1093,1146,1320,1426,1640,1780,1880,1984,1988,1988,2009,2009,2009,2088,2161&chxt=y&chdl=LOC|TLOC&chco=FF0000,0000FF&chxl=0:|0|500|1000|1500|2000|2500(Example Output)!:http://chart.apis.google.com/chart?cht=lc&chs=525x525&chds=0,2385&chd=t:22,771,799,948,877,1077,1100,1100,1470,1488,1605,1709,1815,1857,2051,2113,2241,2247,2279,2278,2278,2320,2385|21,648,745,901,647,881,895,895,1093,1146,1320,1426,1640,1780,1880,1984,1988,1988,2009,2009,2009,2088,2161&chxt=y&chdl=LOC|TLOC&chco=FF0000,0000FF&chxl=0:|0|500|1000|1500|2000|2500
