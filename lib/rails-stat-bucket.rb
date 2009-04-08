@@ -38,11 +38,7 @@ module RailsStatBucket
     end
   end
 
-  def self.load(params)
-
-  end
-
-  class Entry
-
+  def self.graph(input_file)
+    input = YAML.load_file(input_file)
   end
 end

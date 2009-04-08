@@ -35,13 +35,12 @@ Main do
     option('output_file', 'o', &stat_bucket_file_lambda)
   end
 
-  mode 'load' do
-    description 'Load the stats from the filename and generate a graph'
+  mode 'graph' do
+    description 'Graph the stats from the filename'
     
     def run
-      RailsStatBucket.load(params)
+      RailsStatBucket.graph(params['filename'].value)
     end
     argument('filename', &stat_bucket_file_lambda) 
-    option('graph', 'g', &graph_lambda)
   end
 end
