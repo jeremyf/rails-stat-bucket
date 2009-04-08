@@ -20,7 +20,7 @@ Main do
     description 'Read the git history and collect the stats, writing them to the output file.'
     
     def run
-      RailsStatBucket.generate(params['directory'].value, params['output_file'].value, { :verbose => params['all'].given?, :graph => options['graph'].given?})
+      RailsStatBucket.generate(params['directory'].value, params['output_file'].value, { :verbose => params['all'].given?, :graph => params['graph'].given?})
     end
     
     argument('directory') {
